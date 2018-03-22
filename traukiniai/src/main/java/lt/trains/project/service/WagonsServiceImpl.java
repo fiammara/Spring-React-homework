@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import lt.trains.project.model.Trains;
+import lt.trains.project.model.Train;
 import lt.trains.project.model.Wagons;
-
+import lt.trains.project.repository.TrainsRepository;
 import lt.trains.project.repository.WagonsRepository; 
 
 
@@ -17,15 +17,12 @@ import lt.trains.project.repository.WagonsRepository;
 public class WagonsServiceImpl implements WagonsService {
 	@Autowired
 	private WagonsRepository repo;
+	@Autowired
+	private TrainsRepository repo1;
 	
 	
+
 	
-	
-	@Transactional
-	@Override
-	public void addWagons(Wagons wagon) {
-		repo.save(wagon);		
-	}
 	@Transactional(readOnly = true)
 	@Override
 	public List<Wagons> getWagons() {
@@ -33,14 +30,13 @@ public class WagonsServiceImpl implements WagonsService {
 		return repo.findAll();
 	}
 	@Override
-	public void addWagonstoTrain(Wagons wagon) {
-		// TODO Auto-generated method stub
+	public void addWagons(Wagons wagon) {
+		repo.save(wagon);
 		
 	}
-	@Override
-	public void addWagonstoTrain(Wagons wagon, Trains train) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
+	
+	
 
 }

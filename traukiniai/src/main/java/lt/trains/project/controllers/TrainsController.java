@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import lt.trains.project.model.Trains;
+import lt.trains.project.model.Train;
+import lt.trains.project.model.Wagons;
 import lt.trains.project.service.TrainsService;
 
 @RestController
@@ -29,20 +30,20 @@ private TrainsService service;
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Add train", notes = "Adds new train to the Repository")
-	public void addTrain(@ApiParam @RequestBody Trains train) {
+	public void addTrain(@ApiParam @RequestBody  Train train) {
 		service.addTrains(train);
 		
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get trains", notes = "Returns all trains in the Repository")
-	public List<Trains> getTrains(){
+	public List<Train> getTrains(){
 		return service.getTrains();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/trains/{id}/wagons")
-    public void addWagonToTrain(@PathVariable("id") Long wagonid) {
-       service.addWagonstoTrain( wagonid);
+	@RequestMapping(method = RequestMethod.POST, value = "/{id}/wagons")
+    public void addWagonToTrain(@PathVariable("id") Long id, @RequestBody Long wagonId) {
+       service.addWagonstoTrain(wagonId, wagonId);
     }
 
 }

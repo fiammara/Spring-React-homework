@@ -1,14 +1,12 @@
 package lt.trains.project.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import lt.trains.project.model.Trains;
+import lt.trains.project.model.Train;
 import lt.trains.project.model.Wagons;
 import lt.trains.project.repository.TrainsRepository;
 import lt.trains.project.repository.WagonsRepository;
@@ -19,29 +17,28 @@ public class TrainsServiceImpl implements TrainsService{
 	private TrainsRepository repo;
 	@Autowired
 	private WagonsRepository repo1;
+	
 	@Transactional
 	@Override
-	public void addWagonstoTrain (Long wagonId, Long trainId) {
-		Trains train= repo.findById(trainId).get();
-		Wagons wagon= repo1.findById(wagonId).get();
-		train.addWagon(wagon);		
-	}
-	@Transactional
-	@Override
-	public void addTrains(Trains train) {
+	public void addTrains(Train train) {
 		repo.save(train);
 		
 	}
 	@Transactional(readOnly = true)
 	@Override
-	public List<Trains> getTrains() {
+	public List<Train> getTrains() {
 		
 		return repo.findAll();
 	}
 	@Override
-	public void addWagonstoTrain(Long wagonid) {
-		// TODO Auto-generated method stub
+	public void addWagonstoTrain(Long wagonId, Long trainId) {
+		Train train= repo.findById(trainId).get();
+		Wagons wagon= repo1.findById(wagonId).get();
+		train.addWagon(wagon);
 		
 	}
+
+	
+	
 
 }

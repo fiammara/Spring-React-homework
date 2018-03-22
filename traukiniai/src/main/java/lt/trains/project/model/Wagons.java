@@ -27,7 +27,7 @@ public class Wagons {
 	private BigDecimal finalPrice;
 	@ManyToOne
 	@JoinColumn(name = "trains_id", nullable = false)
-	private Trains train;
+	private Train train;
 	private int PassengerClass;
 	private int maxWeight;
 	
@@ -56,7 +56,7 @@ public class Wagons {
 	public Wagons() {
 		
 	}
-	public Wagons(Trains train, int type) {
+	public Wagons(Train train, int type) {
 		this.train = train;
 		this.type=type;
 	}

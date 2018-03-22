@@ -2,12 +2,13 @@ package lt.trains.project.service;
 
 import java.util.List;
 
-import lt.trains.project.model.Trains;
+import lt.trains.project.model.Train;
 
 
 public interface TrainsService {
-	void addTrains(Trains train);
-	List<Trains> getTrains();
-	void addWagonstoTrain(Long wagonid);
+	void addTrains(Train train);
+	List<Train> getTrains();
 	void addWagonstoTrain(Long wagonId, Long trainId);
+
+
 }
