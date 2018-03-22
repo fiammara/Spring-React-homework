@@ -8,4 +8,5 @@ import lt.trains.project.model.Trains;
 public interface TrainsService {
 	void addTrains(Trains train);
 	List<Trains> getTrains();
+	void addWagonstoTrain(Long wagonid, Long trainid);
 }

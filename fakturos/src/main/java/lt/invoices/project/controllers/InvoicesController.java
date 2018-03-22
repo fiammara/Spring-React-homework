@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lt.invoices.project.model.Invoice;
 import lt.invoices.project.service.InvoiceService;
-
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 @CrossOrigin
 @RestController
+@Api(value = "invoice")
+@RequestMapping(value = "api/invoices")
 public class InvoicesController {
 private InvoiceService service;
 	

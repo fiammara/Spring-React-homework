@@ -19,11 +19,7 @@ public class WagonsServiceImpl implements WagonsService {
 	private WagonsRepository repo;
 	
 	
-	@Transactional
-	@Override
-	public void addWagonstoTrain (Wagons wagon, Trains train) {
-		train.addWagon(wagon);		
-	}
+	
 	
 	@Transactional
 	@Override
@@ -35,6 +31,11 @@ public class WagonsServiceImpl implements WagonsService {
 	public List<Wagons> getWagons() {
 		
 		return repo.findAll();
+	}
+	@Override
+	public void addWagonstoTrain(Wagons wagon, Trains train) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
