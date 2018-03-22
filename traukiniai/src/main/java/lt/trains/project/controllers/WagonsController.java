@@ -26,12 +26,12 @@ private WagonsService service;
 		this.service = service;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
-	@ApiOperation(value = "Add wagon", notes = "Adds new wagon to the train")
-	public void addWagon(@ApiParam @RequestBody Wagons wagon) {
-		service.addWagons(wagon);
+	//@RequestMapping(method = RequestMethod.POST)
+	//@ApiOperation(value = "Add wagon", notes = "Adds new wagon to the train")
+	//public void addWagon(@ApiParam @RequestBody Wagons wagonId) {
+	//	service.addWagons(wagonId);
 		
-	}
+	//}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value = "Get trains", notes = "Returns all wagons")

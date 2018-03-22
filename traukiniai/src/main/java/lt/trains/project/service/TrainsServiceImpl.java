@@ -22,8 +22,9 @@ public class TrainsServiceImpl implements TrainsService{
 	@Transactional
 	@Override
 	public void addWagonstoTrain (Long wagonId, Long trainId) {
-		Trains train= repo.findById(trainId);
-		train.addWagon(repo1.findById(wagonId));		
+		Trains train= repo.findById(trainId).get();
+		Wagons wagon= repo1.findById(wagonId).get();
+		train.addWagon(wagon);		
 	}
 	@Transactional
 	@Override
@@ -36,6 +37,11 @@ public class TrainsServiceImpl implements TrainsService{
 	public List<Trains> getTrains() {
 		
 		return repo.findAll();
+	}
+	@Override
+	public void addWagonstoTrain(Long wagonid) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -33,6 +33,11 @@ public class WagonsServiceImpl implements WagonsService {
 		return repo.findAll();
 	}
 	@Override
+	public void addWagonstoTrain(Wagons wagon) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
 	public void addWagonstoTrain(Wagons wagon, Trains train) {
 		// TODO Auto-generated method stub
 		

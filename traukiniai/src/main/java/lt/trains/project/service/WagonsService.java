@@ -10,4 +10,5 @@ public interface WagonsService {
 	List<Wagons> getWagons();
 	
 	void addWagonstoTrain(Wagons wagon, Trains train);
+	void addWagonstoTrain(Wagons wagon);
 }
