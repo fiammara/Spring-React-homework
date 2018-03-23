@@ -30,6 +30,7 @@ public class TrainsServiceImpl implements TrainsService{
 		
 		return repo.findAll();
 	}
+	@Transactional
 	@Override
 	public void addWagonstoTrain(Long wagonId, Long trainId) {
 		Train train= repo.findById(trainId).get();
@@ -38,7 +39,5 @@ public class TrainsServiceImpl implements TrainsService{
 		
 	}
 
-	
-	
 
 }

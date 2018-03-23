@@ -20,9 +20,7 @@ public class WagonsServiceImpl implements WagonsService {
 	@Autowired
 	private TrainsRepository repo1;
 	
-	
-
-	
+		
 	@Transactional(readOnly = true)
 	@Override
 	public List<Wagons> getWagons() {
@@ -32,6 +30,14 @@ public class WagonsServiceImpl implements WagonsService {
 	@Override
 	public void addWagons(Wagons wagon) {
 		repo.save(wagon);
+		
+	}
+	@Transactional
+	@Override
+	public void addWagonstoTrain(Long wagonId, Long trainId) {
+		Train train= repo1.findById(trainId).get();
+		Wagons wagon= repo.findById(wagonId).get();
+		train.addWagon(wagon);
 		
 	}
 	

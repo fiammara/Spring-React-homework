@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "wagons")
@@ -22,16 +23,15 @@ public class Wagons {
 	private BigDecimal quantity;
 
 	private int type;
+	@Transient
 	private BigDecimal price;
 	private int volume;
 	private BigDecimal finalPrice;
 	@ManyToOne
-	@JoinColumn(name = "trains_id", nullable = false)
+	@JoinColumn(name = "trains_id", nullable = true)
 	private Train train;
 	private int PassengerClass;
-	private int maxWeight;
-	
-	
+	private int maxWeight;	
 	private String locomotiveType;
 	
 	public String getLocomotiveType() {
@@ -56,11 +56,7 @@ public class Wagons {
 	public Wagons() {
 		
 	}
-	public Wagons(Train train, int type) {
-		this.train = train;
-		this.type=type;
-	}
-
+	
 	public BigDecimal getFinalPrice() {
 		return price.multiply(quantity);
 	}
